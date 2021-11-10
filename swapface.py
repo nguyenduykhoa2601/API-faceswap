@@ -180,8 +180,7 @@ def faceSwap(filename1,filename2):
     
     # Clone seamlessly.
     output = cv2.seamlessClone(np.uint8(img1Warped), img2, mask, center, cv2.NORMAL_CLONE)
-    result=cv2.resize(output,(600,600))
-    cv2.imwrite('./output/img.png', result)
+    cv2.imwrite('./output/img.png', output)
     # cv2.imshow("Face Swapped", result)
     # 
     
