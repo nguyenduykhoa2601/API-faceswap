@@ -66,9 +66,20 @@ def upload_file():
 def predict():
 	faceSwap("./input/img_1.png","./input/img_2.png")
 	# object_detection(image_path=[str("./data/uploads/"+os.listdir("data/uploads/")[0])])
-	
+	faceSwap1("./input/img_2.png","./input/img_1.png")
+
 	data = preprocessing_image("./output/"+os.listdir("./output/")[0])
+	# data1 = preprocessing_image("./output/"+os.listdir("./output/")[1])
 	return f'"data:image/png;base64,{data}"'
+
+
+@app.route('/predict1', methods=['GET', 'POST'])
+def predict1():
+	# faceSwap("./input/img_1.png","./input/img_2.png")
+	# object_detection(image_path=[str("./data/uploads/"+os.listdir("data/uploads/")[0])])
+	faceSwap1("./input/img_2.png","./input/img_1.png")
+	data1 = preprocessing_image("./output/"+os.listdir("./output/")[1])
+	return f'"data:image/png;base64,{data1}"'
 
 
 if __name__ == "__main__":
